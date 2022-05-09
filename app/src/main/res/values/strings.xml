@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RestoAndroid</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="Connexion">Connexion</string>
+    <string name="loginhere">loginhere</string>
+    <string name="signUp">signUp</string>
+    <string name="signup">signup</string>
+    <string name="fullname">fullname</string>
+    <string name="email">email</string>
+    <string name="Prenom">Prenom</string>
+    <string name="Nom">Nom</string>
+    <string name="Téléphone">Téléphone</string>
+    <string name="mail">mail</string>
+</resources>

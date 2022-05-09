@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="password">password</string>
+    <string name="Connexion">Connexion</string>
+    <string name="loginhere">loginhere</string>
+    <string name="signUp">signUp</string>
+</resources>
