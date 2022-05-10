@@ -92,13 +92,5 @@ public class Connexion extends AppCompatActivity {
                 }
             }
         });
-
-        textViewsignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.activity_inscription);
-            }
-        });
-
     }
 }

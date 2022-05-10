@@ -6,8 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Connexion">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="192dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -25,7 +35,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426"
+        app:layout_constraintVertical_bias="0.5"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,9 +54,9 @@
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:drawableEnd="@drawable/ic_email"
                 android:drawableRight="@drawable/ic_email"
+                android:gravity="center"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,12 +72,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:drawableEnd="@drawable/ic_password"
                 android:drawableRight="@drawable/ic_password"
+                android:gravity="center"
+                android:inputType="textPassword"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +93,7 @@
         <Button
             android:id="@+id/buttonLogin"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/Connexion"
@@ -96,21 +106,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Inscrivez vous ici"
+            android:text="@string/inscrivez_vous_ici"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
             tools:targetApi="jelly_bean" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="192dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
