@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="jelly_bean" />
+         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:drawableEnd="@drawable/ic_user"
-                android:drawableRight="@drawable/ic_username"
+                android:drawableEnd="@drawable/ic_email"
+                android:drawableRight="@drawable/ic_email"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,8 +107,10 @@
         android:id="@+id/imageView"
         android:layout_width="192dp"
         android:layout_height="79dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
