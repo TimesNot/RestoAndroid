@@ -39,7 +39,7 @@ public class Inscription extends AppCompatActivity {
         textViewLoginText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Connexion.class);
+                Intent intent = new Intent(Inscription.this,Connexion.class);
                 startActivity(intent);
                 finish();
             }
