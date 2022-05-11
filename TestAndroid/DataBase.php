@@ -37,19 +37,16 @@ class DataBase
     {
         $mail = $this->prepareData($mail);
         $password = $this->prepareData($password);
-        $this->sql = "select * from " . $table . " WHERE MAIL = '" . $mail . "'";
+        $password = md5($password);
+        $this->sql = "SELECT * FROM " . $table . " WHERE MAIL = '" . $mail . "' AND PASSWORD = '" . $password . "'"   ;
         $result = mysqli_query($this->connect, $this->sql);
         $row = mysqli_fetch_assoc($result);
         if (mysqli_num_rows($result) != 0) {
-            $dbusername = $row['MAIL'];
-            $dbpassword = $row['PASSWORD'];
-            if ($dbusername == $mail && password_verify($password, $dbpassword)) {
-                $login = true;
-            } else $login = false;
-        } else $login = false;
-
-        return $login;
-    }
+            return true;
+        }else{
+            return false;
+        }
+}
 
     function signUp($table,$Nom, $Prenom,$tel, $email, $password)
     {
@@ -58,7 +55,7 @@ class DataBase
         $tel = $this->prepareData($tel);
         $password = $this->prepareData($password);
         $email = $this->prepareData($email);
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = md5($password);
         $this->sql =
             "INSERT INTO " . $table . " (NOM,PRENOM,TEL,MAIL,PASSWORD) VALUES ('" . $nom . "','" . $prenom . "','" . $tel . "','" . $email . "','" .$password ."')";
         if (mysqli_query($this->connect, $this->sql)) {
