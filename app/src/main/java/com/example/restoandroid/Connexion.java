@@ -37,7 +37,7 @@ public class Connexion extends AppCompatActivity {
         textViewsignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Connexion.this,Inscription.class);
+                Intent intent = new Intent(getApplicationContext(),Inscription.class);
                 startActivity(intent);
                 finish();
             }
@@ -93,6 +93,12 @@ public class Connexion extends AppCompatActivity {
             }
         });
 
+        textViewsignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_inscription);
+            }
+        });
 
     }
 }
