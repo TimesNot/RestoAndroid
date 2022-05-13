@@ -9,4 +9,7 @@
     <string name="Téléphone">Téléphone</string>
     <string name="mail">mail</string>
     <string name="inscrivez_vous_ici">Inscrivez vous ici</string>
+    <string name="liste">Liste des restaurants</string>
+    <string name="restaurant_defaut_nom">Nom du restaurant</string>
+    <string name="restaurant_defaut_ville">Ville</string>
 </resources>
