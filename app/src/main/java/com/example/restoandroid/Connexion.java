@@ -74,7 +74,7 @@ public class Connexion extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if(result.equals("Login Success")){
-                                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(),ListeRestaurant.class);
                                         startActivity(intent);
                                         finish();
                                     }else{
@@ -92,5 +92,13 @@ public class Connexion extends AppCompatActivity {
                 }
             }
         });
+
+        textViewsignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_inscription);
+            }
+        });
+
     }
 }
