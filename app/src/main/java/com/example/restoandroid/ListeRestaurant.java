@@ -1,16 +1,22 @@
 package com.example.restoandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restoandroid.adapters.Restaurant_adapter;
@@ -36,24 +42,27 @@ import okhttp3.Response;
 public class ListeRestaurant extends AppCompatActivity {
     //attributs
 
+    private ListeRestaurant restaurant;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_restos);
 
         LayoutInflater inflater = null;
-
+        ImageView closebutton;
+        this.restaurant = this;
         //list de restaurant
         // List<Restaurant> restaurantList = new ArrayList<>();
         // restaurantList.add(new Restaurant("Agadir", "Nantes"));
         // restaurantList.add(new Restaurant("Auberge", "Rezé"));
         // restaurantList.add(new Restaurant("Bar du Charcutier", "Rennes"));
 
-        ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
-
+       ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
+       // ArrayList<String> restaurantList = new ArrayList<>();
         Restaurant_adapter adapter = new Restaurant_adapter(this,restaurantList);
 
-
+        closebutton = findViewById(R.id.close_button);
 
         //get list view
         ListView restaurantListView = findViewById(R.id.restaurant_list_view);
@@ -94,20 +103,27 @@ public class ListeRestaurant extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 String NOM = jsonObject.getString("NOM");
                                 String ville = jsonObject.getString("ville");
-                                //Log.i("Restos", NOM + " " + ville); //message qui apparait dans la console pour vérifier
+                                Log.i("Restos", NOM + " " + ville); //message qui apparait dans la console pour vérifier
                                 //on ajoute le Resto à la collection lesRestos
                                 //restaurantList.add(NOM + " - " + ville);
                                 Restaurant newRestaurant = new Restaurant(NOM,ville);
                                 adapter.add(newRestaurant);
-                                
-
-
+                                restaurantList.add(newRestaurant);
                             }
 
                             //ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(ListeRestaurant.this, android.R.layout.simple_list_item_1, restaurantList);
                             //restaurantListView.setAdapter(dataAdapter);
 
+                           restaurantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                               @Override
+                               public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                setContentView(R.layout.details_restaurants);
+                                Intent intent = new Intent(ListeRestaurant.this,Details_Restaurant.class);
 
+
+
+                               }
+                           });
 
                         } catch (final JSONException e) {
                             runOnUiThread(new Runnable() {

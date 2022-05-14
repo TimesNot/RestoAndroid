@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="500dp"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/restaurant_entrepote" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/restaurant_defaut_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/restaurant_defaut_nom"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        android:layout_marginLeft="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/DescriptionRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Description"
+        android:layout_marginTop="20dp"
+        android:theme="@style/BoldBlack"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Description"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/DescriptionRestaurant"
+        app:layout_constraintTop_toBottomOf="@+id/DescriptionRestaurant" />
+
+    <TextView
+        android:id="@+id/Adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Adresse"
+        android:layout_marginTop="20dp"
+        android:theme="@style/BoldBlack"
+        app:layout_constraintStart_toStartOf="@+id/Description"
+        app:layout_constraintTop_toBottomOf="@+id/Description" />
+
+    <TextView
+        android:id="@+id/Adresse_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Adresse"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/Adresse"
+        app:layout_constraintTop_toBottomOf="@+id/Adresse" />
+
+    <TextView
+        android:id="@+id/restaurant_ville"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Ville"
+        android:layout_marginTop="20dp"
+        android:theme="@style/BoldBlack"
+        app:layout_constraintStart_toStartOf="@+id/Adresse_get"
+        app:layout_constraintTop_toBottomOf="@+id/Adresse_get" />
+
+    <TextView
+        android:id="@+id/ville_resto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Ville"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/restaurant_ville"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_ville" />
+
+    <TextView
+        android:id="@+id/Types_Cuisines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Types Cuisines"
+        android:theme="@style/BoldBlack"
+        app:layout_constraintStart_toStartOf="@+id/ville_resto"
+        app:layout_constraintTop_toBottomOf="@+id/ville_resto" />
+
+    <TextView
+        android:id="@+id/typesCuisines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Types Cuisines"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/Types_Cuisines"
+        app:layout_constraintTop_toBottomOf="@+id/Types_Cuisines" />
+
+    <Button
+        android:id="@+id/reservation_restos"
+        android:layout_width="157dp"
+        android:layout_height="38dp"
+        android:text="Réserver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/restaurant_defaut_nom"
+        app:layout_constraintStart_toStartOf="@+id/restaurant_defaut_nom" />
+</androidx.constraintlayout.widget.ConstraintLayout>
