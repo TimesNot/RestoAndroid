@@ -34,6 +34,11 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".Details_Restaurant"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"/>

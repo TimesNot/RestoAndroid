@@ -4,19 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restoandroid.adapters.Restaurant_adapter;
@@ -27,10 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Array;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,36 +34,23 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-
 public class ListeRestaurant extends AppCompatActivity {
     //attributs
-
-    private ListeRestaurant restaurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_restos);
 
-        LayoutInflater inflater = null;
-        ImageView closebutton;
-        this.restaurant = this;
         //list de restaurant
-        // List<Restaurant> restaurantList = new ArrayList<>();
-        // restaurantList.add(new Restaurant("Agadir", "Nantes"));
-        // restaurantList.add(new Restaurant("Auberge", "Rezé"));
-        // restaurantList.add(new Restaurant("Bar du Charcutier", "Rennes"));
-
-       ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
-       // ArrayList<String> restaurantList = new ArrayList<>();
-        Restaurant_adapter adapter = new Restaurant_adapter(this,restaurantList);
-
-        closebutton = findViewById(R.id.close_button);
+        List<Restaurant> restaurantList = new ArrayList<>();
 
         //get list view
+        // ListView restaurantListView = findViewById(R.id.restaurant_list_view);
+        // restaurantListView.setAdapter(new Restaurant_adapter(this,restaurantList));
+
+        //ArrayList<String> restaurantList = new ArrayList<>();
         ListView restaurantListView = findViewById(R.id.restaurant_list_view);
-        restaurantListView.setAdapter(adapter);
-        //restaurantListView.setAdapter(new Restaurant_adapter(this,restaurantList));
 
         //creation de la requete http sur le serveur local, cela necessite
         OkHttpClient httpResto = new OkHttpClient();
@@ -82,14 +65,13 @@ public class ListeRestaurant extends AppCompatActivity {
                 Log.i("erreur1", e.getMessage());
             }
 
-            // si la requête réussi
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 final String myResponse = response.body().string();
                 ListeRestaurant.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
+                        try{
                             // on crée un objet JSON à partir de notre réponse.
                             JSONObject jsonObjectListeRestos = new JSONObject(myResponse);
                             //on transforme cet objet JSON en array d'objet Resto sous forme JSON
@@ -104,39 +86,49 @@ public class ListeRestaurant extends AppCompatActivity {
                                 String NOM = jsonObject.getString("NOM");
                                 String ville = jsonObject.getString("ville");
                                 Log.i("Restos", NOM + " " + ville); //message qui apparait dans la console pour vérifier
-                                //on ajoute le Resto à la collection lesRestos
-                                //restaurantList.add(NOM + " - " + ville);
-                                Restaurant newRestaurant = new Restaurant(NOM,ville);
-                                adapter.add(newRestaurant);
-                                restaurantList.add(newRestaurant);
+
+                                restaurantList.add(new Restaurant(NOM , ville));
+
                             }
+                            // ArrayAdapter<String> adapter = new ArrayAdapter<>(ListeRestaurant.this, android.R.layout.simple_list_item_1,restaurantList);
+                            // restaurantListView.setAdapter(adapter);
 
-                            //ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(ListeRestaurant.this, android.R.layout.simple_list_item_1, restaurantList);
-                            //restaurantListView.setAdapter(dataAdapter);
+                            restaurantListView.setAdapter(new Restaurant_adapter(ListeRestaurant.this,restaurantList));             ;
+                            restaurantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                  Intent intent = new Intent(ListeRestaurant.this, Details_Restaurant.class);
+                                //  intent.putExtra("NOM",String.valueOf(restaurantList.get(i)) );
+                                //  intent.putExtra("ville", String.valueOf(restaurantList.get(i)) );
+                                    Integer Item = i+1;
+                                    intent.putExtra("NOM", Item );
 
-                           restaurantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                               @Override
-                               public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                setContentView(R.layout.details_restaurants);
-                                Intent intent = new Intent(ListeRestaurant.this,Details_Restaurant.class);
 
+                                    Toast.makeText(ListeRestaurant.this,"Position :" + i,Toast.LENGTH_SHORT).show();
+                                   startActivity(intent);
 
+                                }
+                            });
 
-                               }
-                           });
-
-                        } catch (final JSONException e) {
+                        } catch (final JSONException e){
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Log.i("erreur2", e.getMessage());
-                                }
+                                    Log.i("erreur2",e.getMessage());}
                             });
                         }
                     }
                 });
             }
         });
+
+
+
+
+
     }
+
+
+
 }
 

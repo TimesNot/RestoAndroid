@@ -7,11 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp">
 
-    <ImageView
-        android:id="@+id/restaurant_image"
-        android:layout_width="100dp"
-        android:layout_height="67dp"
-        app:srcCompat="@drawable/restaurant_le_bistrot_sainte_cluque" />
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -23,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/restaurant_defaut_nom"
+            android:textAlignment="center"
             android:textColor="#324aa8"
             android:textSize="15dp" />
 
@@ -31,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/restaurant_defaut_ville"
+            android:textAlignment="center"
             android:textSize="12dp"
             android:layout_below="@+id/restaurant_nom"/>
     </RelativeLayout>
