@@ -49,15 +49,17 @@ public class Details_Restaurant extends AppCompatActivity {
         reservation = findViewById(R.id.reservation_restos);
 
 
-      //  reservation.setOnClickListener(new View.OnClickListener() {
-      //      @Override
-      //      public void onClick(View view) {
-        //        Intent intent4 = new Intent(getApplicationContext(),Reservation.class);
-             //   intent4.putExtra("NomResto",TextViewNomResto.getText());
-          //      startActivity(intent4);
+        reservation.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+            //    Intent intent4 = new Intent(getApplicationContext(),Reservation.class);
+            //    intent4.putExtra("NomResto",TextViewNomResto.getText());
+            //    startActivity(intent4);
             //    finish();
-           // }
-        // });
+               setContentView(R.layout.activity_reservation);
+
+            }
+        });
 
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override

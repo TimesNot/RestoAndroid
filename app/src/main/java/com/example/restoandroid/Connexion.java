@@ -78,9 +78,9 @@ public class Connexion extends AppCompatActivity {
                                         startActivity(intent);
 
 
-                                        Intent intent2 = new Intent(getApplicationContext(),Reservation.class);
-                                        intent2.putExtra("MAIL",mail);
-                                        startActivity(intent2);
+                                    //    Intent intent2 = new Intent(getApplicationContext(),Reservation.class);
+                                    //    intent2.putExtra("MAIL",mail);
+                                    //    startActivity(intent2);
 
                                         finish();
                                     }else{
