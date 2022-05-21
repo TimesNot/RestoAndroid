@@ -33,18 +33,41 @@ import okhttp3.Response;
 public class Details_Restaurant extends AppCompatActivity {
 
     ImageView closeButton;
-
+    Button reservation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_restaurants);
 
+
         closeButton = findViewById(R.id.close_button);
         TextView TextViewNomResto = findViewById(R.id.restaurant_defaut_nom);
         TextView TextViewAdresseResto = findViewById(R.id.Adresse_get);
         TextView TextViewDescResto = findViewById(R.id.Description);
         TextView TextViewVille = findViewById(R.id.ville_resto);
+        reservation = findViewById(R.id.reservation_restos);
+
+
+      //  reservation.setOnClickListener(new View.OnClickListener() {
+      //      @Override
+      //      public void onClick(View view) {
+        //        Intent intent4 = new Intent(getApplicationContext(),Reservation.class);
+             //   intent4.putExtra("NomResto",TextViewNomResto.getText());
+          //      startActivity(intent4);
+            //    finish();
+           // }
+        // });
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),ListeRestaurant.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
         Intent intent = getIntent();
@@ -75,22 +98,39 @@ public class Details_Restaurant extends AppCompatActivity {
                 //si la requête réussie
                 public void onResponse(Call call, Response response) throws IOException {
 
-                    final String myResponse2 = response.body().string();
+                    final String myResponse = response.body().string();
                     Details_Restaurant.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             try {
                                 // on crée un objet JSON à partir de notre réponse.
-                                JSONObject jsonObjectDetailResto = new JSONObject(myResponse2);
+                                JSONObject jsonObjectDetailResto = new JSONObject(myResponse);
                                 //on transforme cet objet JSON en array d'objet Resto sous forme JSON
-                                JSONArray jsonArray = jsonObjectDetailResto.optJSONArray("DetailsRestos");
+                                JSONArray jsonArrayDetail = jsonObjectDetailResto.optJSONArray("DetailsRestos");
                                 //on parcours cette collection d'objet Restos pour ajouter chaque Resto dans notre liste d'objet Resto
 
 
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                for (int i = 0; i < jsonArrayDetail.length(); i++) {
+                                    JSONObject jsonObject = jsonArrayDetail.getJSONObject(i);
                                     String NOM = jsonObject.getString("NOM");
+                                    String DESCRIPTION = jsonObject.getString("DESCRIPTION");
+                                    String ADRESSE = jsonObject.getString("ADRESSE");
+                                    String CODEPOSTAL = jsonObject.getString("CODEPOSTAL");
+                                    String ville = jsonObject.getString("ville");
+
+
+                                    if (DESCRIPTION.equals("null")){
+                                        DESCRIPTION = "Ce restaurant n'a pas de description !";
+
+                                    }
+
                                     TextViewNomResto.setText(NOM);
+                                    TextViewAdresseResto.setText(ADRESSE + " " + CODEPOSTAL + " "+ ville);
+                                    TextViewDescResto.setText(DESCRIPTION);
+                                    TextViewVille.setText(ville);
+
+
+
                                 }
 
 
@@ -98,7 +138,7 @@ public class Details_Restaurant extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Log.i("erreur2", e.getMessage());
+                                        Log.i("ERRREUR22222", e.getMessage());
                                     }
                                 });
                             }
@@ -106,6 +146,8 @@ public class Details_Restaurant extends AppCompatActivity {
                     });
                 }
             });
+
+
         }
 
 
@@ -113,16 +155,10 @@ public class Details_Restaurant extends AppCompatActivity {
 
 
 
-            //    TextViewNomResto.setText(NomResto);
-            //   TextViewVille.setText(Ville);
-
-        }
-
+        //    TextViewNomResto.setText(NomResto);
+        //   TextViewVille.setText(Ville);
 
     }
 
 
-
-
-
-
+}

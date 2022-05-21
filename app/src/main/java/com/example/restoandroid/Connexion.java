@@ -76,6 +76,12 @@ public class Connexion extends AppCompatActivity {
                                     if(result.equals("Login Success")){
                                         Intent intent = new Intent(getApplicationContext(),ListeRestaurant.class);
                                         startActivity(intent);
+
+
+                                        Intent intent2 = new Intent(getApplicationContext(),Reservation.class);
+                                        intent2.putExtra("MAIL",mail);
+                                        startActivity(intent2);
+
                                         finish();
                                     }else{
                                         Toast.makeText(getApplicationContext(), "Connexion non valide", Toast.LENGTH_SHORT).show();
@@ -93,12 +99,7 @@ public class Connexion extends AppCompatActivity {
             }
         });
 
-        textViewsignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.activity_inscription);
-            }
-        });
+
 
     }
 }

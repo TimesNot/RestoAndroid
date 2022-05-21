@@ -104,7 +104,7 @@ public class ListeRestaurant extends AppCompatActivity {
                                     intent.putExtra("NOM", Item );
 
 
-                                    Toast.makeText(ListeRestaurant.this,"Position :" + i,Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ListeRestaurant.this,"Position :" + Item,Toast.LENGTH_SHORT).show();
                                    startActivity(intent);
 
                                 }

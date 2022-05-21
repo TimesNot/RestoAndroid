@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="500dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -124,8 +124,10 @@
         android:id="@+id/reservation_restos"
         android:layout_width="157dp"
         android:layout_height="38dp"
+        android:layout_marginBottom="228dp"
         android:text="Réserver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/restaurant_defaut_nom"
-        app:layout_constraintStart_toStartOf="@+id/restaurant_defaut_nom" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/typesCuisines" />
 </androidx.constraintlayout.widget.ConstraintLayout>
