@@ -47,7 +47,8 @@ public class Details_Restaurant extends AppCompatActivity {
         TextView TextViewDescResto = findViewById(R.id.Description);
         TextView TextViewVille = findViewById(R.id.ville_resto);
         TextView TextViewCuisine = findViewById(R.id.typesCuisines);
-        TextView TextViewHoraire = findViewById(R.id.HorairesRecup);
+        TextView TextViewHoraireMatin = findViewById(R.id.HorairesMatin);
+        TextView TextViewHoraireSoir = findViewById(R.id.HorairesSoir);
         reservation = findViewById(R.id.reservation_restos);
 
 
@@ -137,7 +138,8 @@ public class Details_Restaurant extends AppCompatActivity {
                                     TextViewDescResto.setText(DESCRIPTION);
                                     TextViewVille.setText(ville);
                                     TextViewCuisine.setText(cuisine);
-                                    TextViewHoraire.setText("Matin "+ HoraireOuvertureMatin + " - " + HoraireFermetureMatin + " "+ " "+ " " + " "  + " Soir " + HoraireOuvertureMatin + " - " + HoraireFermetureMatin );
+                                    TextViewHoraireMatin.setText("Matin : " + HoraireOuvertureMatin + " - " + HoraireFermetureMatin);
+                                    TextViewHoraireSoir.setText("Soir : " + HoraireOuvertureSoir + " - " + HoraireFermetureSoir );
 
 
 

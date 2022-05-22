@@ -172,11 +172,4 @@
             tools:targetApi="jelly_bean" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
