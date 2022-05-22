@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_bias="0.7"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -129,28 +129,36 @@
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Switch
-            android:id="@+id/switch_emplacement"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="127dp"
-            android:text="@string/emplacement"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutheure"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutheure">
+
+            <RadioButton
+                android:id="@+id/interieur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intérieur" />
+
+            <RadioButton
+                android:id="@+id/exterieur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extérieur" />
+        </RadioGroup>
 
         <Button
-        android:id="@+id/buttonReserver"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/Reservation"
-        app:layout_constraintTop_toBottomOf="@+id/switch_emplacement" />
+            android:id="@+id/buttonReserver"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Reservation"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
