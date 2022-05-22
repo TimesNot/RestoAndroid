@@ -98,8 +98,6 @@ public class ListeRestaurant extends AppCompatActivity {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                   Intent intent = new Intent(ListeRestaurant.this, Details_Restaurant.class);
-                                //  intent.putExtra("NOM",String.valueOf(restaurantList.get(i)) );
-                                //  intent.putExtra("ville", String.valueOf(restaurantList.get(i)) );
                                     Integer Item = i+1;
                                     intent.putExtra("NOM", Item );
 

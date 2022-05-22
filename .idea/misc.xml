@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.3165" />
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/drawable/ic_close.xml" value="0.3165" />
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/drawable/ic_date.xml" value="0.3165" />
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/drawable/ic_email.xml" value="0.3165" />
         <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/activity_connexion.xml" value="0.31354166666666666" />
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/activity_inscription.xml" value="0.31354166666666666" />
         <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/activity_liste_restos.xml" value="0.33" />
+        <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/activity_reservation.xml" value="0.31354166666666666" />
         <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/adapter_restaurant.xml" value="0.4461050724637681" />
         <entry key="..\:/Joliverie/2eme_annee/projet resto-reservation/app/src/main/res/layout/details_restaurants.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/charr/AndroidStudioProjects/RestoAndroid-affichageListeResto/app/src/main/res/layout/activity_liste_restos.xml" value="0.151268115942029" />

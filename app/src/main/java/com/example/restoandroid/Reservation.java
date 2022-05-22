@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Reservation extends AppCompatActivity {
 
-    TextView textViewNomResto = findViewById(R.id.textViewNomRestoReservation);
+    TextView textViewNomResto = findViewById(R.id.nom_restaurant);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

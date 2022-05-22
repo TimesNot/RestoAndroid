@@ -16,4 +16,10 @@
     <string name="Description">Description</string>
     <string name="Adresse">Adresse</string>
     <string name="Ville">Ville</string>
+    <string name="NombrePersonne">nombre de personnes</string>
+    <string name="Commentaire">Commentaire</string>
+    <string name="Date">Date</string>
+    <string name="Heure">heure</string>
+    <string name="emplacement">Interieur/exterieur</string>
+    <string name="Reservation">réserver</string>
 </resources>

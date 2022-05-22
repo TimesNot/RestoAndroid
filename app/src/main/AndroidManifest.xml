@@ -16,10 +16,6 @@
         <activity android:name=".Connexion"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -37,6 +33,10 @@
             android:name=".ListeRestaurant"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".Details_Restaurant"
