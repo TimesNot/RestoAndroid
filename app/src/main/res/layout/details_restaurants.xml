@@ -120,6 +120,25 @@
         app:layout_constraintStart_toStartOf="@+id/Types_Cuisines"
         app:layout_constraintTop_toBottomOf="@+id/Types_Cuisines" />
 
+    <TextView
+        android:id="@+id/Horaires"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Horaires"
+        android:theme="@style/BoldBlack"
+        app:layout_constraintStart_toStartOf="@+id/typesCuisines"
+        app:layout_constraintTop_toBottomOf="@+id/typesCuisines" />
+
+    <TextView
+        android:id="@+id/HorairesRecup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horaires"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/Horaires"
+        app:layout_constraintTop_toBottomOf="@+id/Horaires" />
+
     <Button
         android:id="@+id/reservation_restos"
         android:layout_width="157dp"

@@ -46,17 +46,19 @@ public class Details_Restaurant extends AppCompatActivity {
         TextView TextViewAdresseResto = findViewById(R.id.Adresse_get);
         TextView TextViewDescResto = findViewById(R.id.Description);
         TextView TextViewVille = findViewById(R.id.ville_resto);
+        TextView TextViewCuisine = findViewById(R.id.typesCuisines);
+        TextView TextViewHoraire = findViewById(R.id.HorairesRecup);
         reservation = findViewById(R.id.reservation_restos);
 
 
         reservation.setOnClickListener(new View.OnClickListener() {
-           @Override
+            @Override
             public void onClick(View view) {
-            //    Intent intent4 = new Intent(getApplicationContext(),Reservation.class);
-            //    intent4.putExtra("NomResto",TextViewNomResto.getText());
-            //    startActivity(intent4);
-            //    finish();
-               setContentView(R.layout.activity_reservation);
+                //    Intent intent4 = new Intent(getApplicationContext(),Reservation.class);
+                //    intent4.putExtra("NomResto",TextViewNomResto.getText());
+                //    startActivity(intent4);
+                //    finish();
+                setContentView(R.layout.activity_reservation);
 
             }
         });
@@ -119,7 +121,11 @@ public class Details_Restaurant extends AppCompatActivity {
                                     String ADRESSE = jsonObject.getString("ADRESSE");
                                     String CODEPOSTAL = jsonObject.getString("CODEPOSTAL");
                                     String ville = jsonObject.getString("ville");
-
+                                    String cuisine = jsonObject.getString("LIBELLECUISINE");
+                                    String HoraireOuvertureMatin = jsonObject.getString("HORAIREOUVERTUREMIDI");
+                                    String HoraireFermetureMatin = jsonObject.getString("HORAIREFERMETUREMIDI");
+                                    String HoraireOuvertureSoir = jsonObject.getString("HORAIREOUVERTURESOIR");
+                                    String HoraireFermetureSoir = jsonObject.getString("HORAIREFERMETURESOIR");
 
                                     if (DESCRIPTION.equals("null")){
                                         DESCRIPTION = "Ce restaurant n'a pas de description !";
@@ -130,6 +136,8 @@ public class Details_Restaurant extends AppCompatActivity {
                                     TextViewAdresseResto.setText(ADRESSE + " " + CODEPOSTAL + " "+ ville);
                                     TextViewDescResto.setText(DESCRIPTION);
                                     TextViewVille.setText(ville);
+                                    TextViewCuisine.setText(cuisine);
+                                    TextViewHoraire.setText("Matin "+ HoraireOuvertureMatin + " - " + HoraireFermetureMatin + " "+ " "+ " " + " "  + " Soir " + HoraireOuvertureMatin + " - " + HoraireFermetureMatin );
 
 
 
